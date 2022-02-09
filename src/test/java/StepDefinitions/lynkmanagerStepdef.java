@@ -107,6 +107,7 @@ public class lynkmanagerStepdef {
 	    String actualname = null;
 		String expectedname = null;
 		lkm.programNameinList(actualname, expectedname);
+		System.out.println(actualname+" : "+expectedname);
 	    Assert.assertEquals(actualname,expectedname);
 	}
 }
