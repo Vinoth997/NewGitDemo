@@ -11,8 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 					 dryRun = false,
 					 monochrome = true,
 					 plugin = {"pretty","html:.//Test-Output/Test.html"})
-
-	
+		
 public class lynkmanagerRunner {
 	
 }

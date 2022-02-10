@@ -24,4 +24,4 @@ Feature: LynkManager Homepage
 	Scenario: Search a program
 		Given User enter program name in search box
 		And Click Enter key
-		Then Program list should be displayed
+		Then Program list should be displayed 

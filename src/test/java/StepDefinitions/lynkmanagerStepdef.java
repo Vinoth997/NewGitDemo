@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import PageObjects.lynkmanagerpo;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,6 +15,28 @@ import junit.framework.Assert;
 public class lynkmanagerStepdef {
 	static WebDriver driver;
 	lynkmanagerpo lkm;
+	
+	
+	@Before
+	public void getTitleofthePage() {
+		System.out.println("Session Started");
+	}
+	
+	@After
+	public void tearDown() {
+		System.out.println("Session End");
+	}
+	
+	@Before("@T002")
+	public void pageTitle() {
+		System.out.println("Title");
+	}
+	
+	@After("@T002")
+	public void close() {
+		System.out.println("browser Close");
+	}
+	
 	@Given("User open LynkManager url {string} in browser")
 	public void user_open_lynk_manager_url_in_browser(String url) {
 	    //WebDriverManager.chromedriver().setup();
@@ -103,11 +127,7 @@ public class lynkmanagerStepdef {
 	}
 
 	@Then("Program list should be displayed")
-	public void program_list_should_be_displayed() {
-	    String actualname = null;
-		String expectedname = null;
-		lkm.programNameinList(actualname, expectedname);
-		System.out.println(actualname+" : "+expectedname);
-	    Assert.assertEquals(actualname,expectedname);
+	public void program_list_should_be_displayed() throws InterruptedException {
+	    lkm.programNameinList();
 	}
 }

@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class lynkmanagerpo {
 	
@@ -70,7 +71,7 @@ public class lynkmanagerpo {
 	@CacheLookup
 	WebElement searchbox;
 	
-	@FindBy(xpath ="//div[@class='property-name']//a")
+	@FindBy(xpath ="//a[@class=\"ng-star-inserted\"]")
 	@CacheLookup
 	WebElement programnameinlist;
 	
@@ -159,11 +160,14 @@ public class lynkmanagerpo {
 		searchbox.sendKeys(Keys.RETURN);
 	}
 	
-	public void programNameinList(String actualname,String expectedname) {
+	public void programNameinList() throws InterruptedException {
+		Thread.sleep(6000);
 		WebDriverWait wait = new WebDriverWait(driver,99);
 		wait.until(ExpectedConditions.visibilityOf(programnameinlist));		
-		actualname = "New Program";
-		expectedname = programnameinlist.getText();
+		String actualname = "New Program";
+		String expectedname = programnameinlist.getText();
+		System.out.println(actualname+" : "+expectedname);
+		Assert.assertEquals(actualname, expectedname);
 	}
 
 
