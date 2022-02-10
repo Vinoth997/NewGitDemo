@@ -5,7 +5,7 @@ Feature: LynkManager Homepage
   Scenario: Navigate to Homepage and validate List
     Given User open LynkManager url "https://test-e10ce.firebaseapp.com/authentication/login" in browser
     And Wait for login page.
-    When User enter mailid "demo@arlynk.com" and password "123456a" 
+    When User enter mailid "demo@arlynk.com" and password "123456a"
     And Click on SignIn button
     Then User should navigate to homepage
 		And Validate the list of programs  
